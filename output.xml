@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220908 15:35:28.459" rpa="false" schemaversion="3">
+<suite id="s1" name="Teste" source="C:\Users\bielx\OneDrive\Área de Trabalho\TesteLogin\login\teste.robot">
+<test id="s1-t1" name="Test login" line="13">
+<kw name="Abrir navegador" library="teste_resource" type="SETUP">
+<try>
+<branch type="TRY">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220908 15:35:28.746" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220908 15:35:28.746" endtime="20220908 15:35:30.134"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220908 15:35:30.135" endtime="20220908 15:35:30.276"/>
+</kw>
+<status status="PASS" starttime="20220908 15:35:28.746" endtime="20220908 15:35:30.276"/>
+</branch>
+<branch type="EXCEPT">
+<pattern>"Possivel falha ao iniciar o site"</pattern>
+<kw name="Log" library="BuiltIn">
+<arg>"Sistema fora do ar"</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220908 15:35:30.276" endtime="20220908 15:35:30.276"/>
+</kw>
+<status status="NOT RUN" starttime="20220908 15:35:30.276" endtime="20220908 15:35:30.276"/>
+</branch>
+<status status="PASS" starttime="20220908 15:35:28.745" endtime="20220908 15:35:30.276"/>
+</try>
+<status status="PASS" starttime="20220908 15:35:28.745" endtime="20220908 15:35:30.276"/>
+</kw>
+<kw name="Acessar pagina do MoviDesktop" library="Login">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Login_URLL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220908 15:35:30.279" level="INFO">Opening url 'https://segurosunimed.movidesk.com/'</msg>
+<status status="PASS" starttime="20220908 15:35:30.278" endtime="20220908 15:35:32.134"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${Login_Box}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220908 15:35:32.135" endtime="20220908 15:35:32.148"/>
+</kw>
+<status status="PASS" starttime="20220908 15:35:30.278" endtime="20220908 15:35:32.148"/>
+</kw>
+<kw name="Input dados login e senha" library="Login">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login_Campo_Usuario}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220908 15:35:32.148" endtime="20220908 15:35:32.174"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Login_Campo_Usuario}</arg>
+<arg>${Login_Usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220908 15:35:32.174" level="INFO">Typing text 'teste' into text field '//input[@name='UserName']'.</msg>
+<status status="PASS" starttime="20220908 15:35:32.174" endtime="20220908 15:35:32.235"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Login_Campo_Senha}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220908 15:35:32.235" level="INFO">Clicking element '//input[contains(@data-val-required,'O campo senha deve ser informado.')]'.</msg>
+<status status="PASS" starttime="20220908 15:35:32.235" endtime="20220908 15:35:32.292"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Login_Campo_Senha}</arg>
+<arg>${Login_Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220908 15:35:32.293" level="INFO">Typing text 'teste' into text field '//input[contains(@data-val-required,'O campo senha deve ser informado.')]'.</msg>
+<status status="PASS" starttime="20220908 15:35:32.292" endtime="20220908 15:35:32.359"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Login_Button_Entrar}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220908 15:35:32.360" level="INFO">Clicking button '//button[contains(.,'Entrar')]'.</msg>
+<status status="PASS" starttime="20220908 15:35:32.359" endtime="20220908 15:35:32.426"/>
+</kw>
+<status status="PASS" starttime="20220908 15:35:32.148" endtime="20220908 15:35:32.426"/>
+</kw>
+<kw name="Fechar navegador" library="teste_resource" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220908 15:35:32.427" endtime="20220908 15:35:34.724"/>
+</kw>
+<status status="PASS" starttime="20220908 15:35:32.427" endtime="20220908 15:35:34.724"/>
+</kw>
+<doc>Esse test verificara a pagina de login no MoviDesktop
+E realizara o login</doc>
+<status status="PASS" starttime="20220908 15:35:28.744" endtime="20220908 15:35:34.725"/>
+</test>
+<doc>Teste abrir pagina de login</doc>
+<status status="PASS" starttime="20220908 15:35:28.461" endtime="20220908 15:35:34.726"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Teste">Teste</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
